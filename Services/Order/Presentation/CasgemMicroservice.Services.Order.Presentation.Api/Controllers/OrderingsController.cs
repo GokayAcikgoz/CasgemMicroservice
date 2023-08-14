@@ -47,9 +47,9 @@ namespace CasgemMicroservice.Services.Order.Presentation.Api.Controllers
 
         [HttpDelete]
 
-        public async Task<IActionResult> OrderingDelete(RemoveOrderingCommandRequest removeOrderingCommandRequest)
+        public async Task<IActionResult> OrderingDelete(int id)
         {
-            await _mediator.Send(removeOrderingCommandRequest);
+            await _mediator.Send(new RemoveOrderingCommandRequest(id));
             return Ok("Sipariş Silindi");
         }
 
