@@ -34,9 +34,13 @@ builder.Services.AddControllers(opt =>
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddDbContext<OrderContext>();
+
 builder.Services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
+
 builder.Services.AddHttpContextAccessor();
-builder.Services.AddScoped<ISharedIdentityService, SharedIdentityService>(); builder.Services.AddApplicationServices(builder.Configuration);
+builder.Services.AddScoped<ISharedIdentityService, SharedIdentityService>(); 
+
+builder.Services.AddApplicationServices(builder.Configuration);
 builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 var app = builder.Build();
 

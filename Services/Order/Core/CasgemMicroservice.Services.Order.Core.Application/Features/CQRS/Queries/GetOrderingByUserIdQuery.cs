@@ -11,7 +11,5 @@ namespace CasgemMicroservice.Services.Order.Core.Application.Features.CQRS.Queri
     public class GetOrderingByUserIdQuery : IRequest<List<ResultOrderingDto>>
     {
         public string Id { get; set; }
-
-
     }
 }
