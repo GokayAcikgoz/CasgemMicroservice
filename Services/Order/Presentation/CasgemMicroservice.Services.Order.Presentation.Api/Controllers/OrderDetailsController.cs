@@ -20,14 +20,14 @@ namespace CasgemMicroservice.Services.Order.Presentation.Api.Controllers
         [HttpGet]
         public async Task<IActionResult> OrderDetailList()
         {
-            var values = _mediator.Send(new GetAllOrderDetailQueryRequest());
+            var values = await _mediator.Send(new GetAllOrderDetailQueryRequest());
             return Ok(values);
         }
 
         [HttpGet("{id}")]
         public async Task<IActionResult> OrderDetailGetById(int id)
         {
-            var value = _mediator.Send(new GetByIdOrderDetailQueryRequest(id));
+            var value = await _mediator.Send(new GetByIdOrderDetailQueryRequest(id));
             return Ok(value);
         }
 
@@ -50,7 +50,6 @@ namespace CasgemMicroservice.Services.Order.Presentation.Api.Controllers
         {
             await _mediator.Send(new RemoveOrderDetailCommandRequest(id));
             return Ok("Sipariş Detayı Silindi");
-
         }
     }
 }
