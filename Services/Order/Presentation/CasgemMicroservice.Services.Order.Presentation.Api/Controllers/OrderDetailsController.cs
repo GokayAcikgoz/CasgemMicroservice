@@ -51,5 +51,7 @@ namespace CasgemMicroservice.Services.Order.Presentation.Api.Controllers
             await _mediator.Send(new RemoveOrderDetailCommandRequest(id));
             return Ok("Sipariş Detayı Silindi");
         }
+
+        
     }
 }
